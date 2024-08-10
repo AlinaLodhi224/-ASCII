@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Username Validation</title>
+</head>
+<body>
+    <script>
+        function isValidUsername(username) {
+            const specialCharacters = [33, 44, 46, 64]; 
+
+            for (var i = 0; i < username.length; i++) {
+                var charCode = username.charCodeAt(i);
+                if (specialCharacters.includes(charCode)) {
+                    return false; 
+                }
+            }
+            return true; 
+        }
+
+        function getUsername() {
+            var username = prompt("Enter your username:");
+
+            while (!isValidUsername(username)) {
+                username = prompt("Invalid username. Please enter a valid username (no special symbols allowed):");
+            }
+
+            alert("Username accepted: " + username);
+        }
+
+        getUsername();
+    </script>
+</body>
+</html>
